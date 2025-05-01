@@ -1,0 +1,16 @@
+﻿<Window x:Class="ClarityAssessment.OtherPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClarityAssessment"
+        mc:Ignorable="d"
+        Title="OtherPage" Height="451" Width="800" Name="OtherPageWindow">
+    <Grid Margin="0,0,0,-16">
+        <TextBlock TextWrapping="Wrap" Text="This is another page!" Margin="116,27,127,338" FontSize="48" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="It has other things on it!" Margin="27,141,439,256" FontSize="24" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="Whoa, it sure does!" Margin="378,217,77,156" FontSize="24" TextAlignment="Center"/>
+        <Button Content="Back to Send an Email Page" Margin="220,313,250,32" FontSize="24" Click="Button_Click"/>
+
+    </Grid>
+</Window>

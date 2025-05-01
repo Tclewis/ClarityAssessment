@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Security;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,37 @@ namespace ClarityAssessment
         public MainWindow()
         {
             InitializeComponent();
+            EmailWindow.ResizeMode = ResizeMode.NoResize;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SendEmail.EmailSender se = new SendEmail.EmailSender();
+
+            String senderStr = EmailSenderField.Text;
+            String recipientStr = EmailRecipientField.Text;
+            String subjectStr = EmailSubjectField.Text;
+            String messageStr = EmailMessageField.Text;
+
+            string response = se.sendEmail(senderStr, recipientStr, subjectStr, messageStr);
+
+            if (response.Equals("success"))
+            {
+                EmailSuccessPopup popup = new EmailSuccessPopup();
+                popup.Show();
+            }
+            else if (response.Equals("invalid"))
+            {
+                EmailInvalidPopup popup = new EmailInvalidPopup();
+                popup.Show();   
+            }
+        }
+
+        private void Button_Click_Other_Page(object sender, RoutedEventArgs e)
+        {
+            OtherPage otherPage = new OtherPage();
+            otherPage.Show();
+            Close();
         }
     }
 }

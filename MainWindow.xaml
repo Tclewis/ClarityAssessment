@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClarityAssessment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="470" Width="942" Name ="EmailWindow">
     <Grid>
+        <TextBlock HorizontalAlignment="Center" Height="27" Margin="0,70,0,0" TextWrapping="Wrap" Text="Wow, so fancy!" VerticalAlignment="Top" Width="110" TextAlignment="Center" FontStyle="Italic"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="35,84,0,0" TextWrapping="Wrap" Text="Sender" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <TextBox TextWrapping="Wrap" Margin="35,113,557,299" Text="tclewiscodetest@gmail.com" Background="#FFD5D5D5" IsEnabled="True" Name="EmailSenderField"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="35,167,0,0" TextWrapping="Wrap" Text="Recipient" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <TextBox TextWrapping="Wrap" Margin="35,196,557,217" Name="EmailRecipientField"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="35,244,0,0" TextWrapping="Wrap" Text="Subject" VerticalAlignment="Top" Width="73" FontSize="18"/>
+        <TextBox TextWrapping="Wrap" Margin="35,273,557,140" Name="EmailSubjectField"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="400,108,0,0" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" Width="80" FontSize="18"/>
+        <TextBox TextWrapping="Wrap" Margin="400,137,111,140" Name="EmailMessageField"/>
+        <Button Content="Send Email" Margin="336,339,356,52" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Center" Height="55" Margin="0,10,0,0" TextWrapping="Wrap" Text="Send an Email" VerticalAlignment="Top" Width="256" FontSize="36" FontWeight="Bold"/>
+        <Button Content="This goes to another page" Margin="704,45,60,370" Click="Button_Click_Other_Page"/>
 
     </Grid>
 </Window>

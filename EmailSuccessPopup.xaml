@@ -1,0 +1,13 @@
+﻿<Window x:Class="ClarityAssessment.EmailSuccessPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClarityAssessment"
+        mc:Ignorable="d"
+        Title="EmailSuccessPopup" Height="160" Width="278" Name="SuccessPopupWindow">
+    <Grid Margin="0,0,0,-6">
+        <TextBlock HorizontalAlignment="Center" Height="30" Margin="0,10,0,0" TextWrapping="Wrap" Text="Email Sent!" VerticalAlignment="Top" Width="134" TextAlignment="Center" FontWeight="Bold"/>
+        <Button Content="OK" Margin="100,62,100,50" Click="Button_Click"/>
+    </Grid>
+</Window>

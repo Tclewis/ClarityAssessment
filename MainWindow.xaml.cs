@@ -18,10 +18,12 @@ namespace ClarityAssessment
     /// </summary>
     public partial class MainWindow : Window
     {
+        SQLiteOps sql;
         public MainWindow()
         {
             InitializeComponent();
             EmailWindow.ResizeMode = ResizeMode.NoResize;
+            sql = new SQLiteOps();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +41,7 @@ namespace ClarityAssessment
             String credentialsStr = ConfigurationManager.AppSettings["senderPassword"];
 
             string response = await Task.Run( () => { return se.sendEmail(senderStr, recipientStr, subjectStr, messageStr, credentialsStr); });
+            sql.InsertData(senderStr, recipientStr, subjectStr, messageStr, response);
 
             if (response.Equals("success"))
             {
@@ -62,6 +65,11 @@ namespace ClarityAssessment
             OtherPage otherPage = new OtherPage();
             otherPage.Show();
             Close();
+        }
+
+        private void Button_Click_DBPrint(object sender, RoutedEventArgs e)
+        {
+            sql.ReadData();
         }
     }
 }

@@ -1,5 +1,7 @@
 Clarity Coding Assesment
 
+By Troy Lewis
+
 My implementation uses WPF as a frontend. It works flawlessly within Visual Studio, but may not work as a raw WPF .exe until you install NuGet dependencies within VS.
 
 My solution is very lightweight on libraries and dependencies. I used a new gmail account as the default sender, authenticating with an app password from google.

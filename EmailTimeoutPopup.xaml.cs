@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace ClarityAssessment
 {
     /// <summary>
-    /// Interaction logic for EmailTimeoutPopup.xaml
+    /// Simple information dialog box for status of email
     /// </summary>
     public partial class EmailTimeoutPopup : Window
     {

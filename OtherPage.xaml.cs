@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace ClarityAssessment
 {
     /// <summary>
-    /// Interaction logic for OtherPage.xaml
+    /// This is "the other page". It's just there to demonstrate that the UI is not locked during
+    /// the email sending attempts
     /// </summary>
     public partial class OtherPage : Window
     {
@@ -25,6 +26,7 @@ namespace ClarityAssessment
             OtherPageWindow.ResizeMode = ResizeMode.NoResize;
         }
 
+        //Button to go back to Email Sending page
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow emailWindow = new MainWindow();

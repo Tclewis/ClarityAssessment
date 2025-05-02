@@ -10,13 +10,15 @@ using System.Diagnostics;
 
 namespace ClarityAssessment
 {
+    //Logic to drive SQLite operations within the app
     internal class SQLiteOps
     {
         SQLiteConnection sqlite_conn;
         public SQLiteOps()
         {
             sqlite_conn = CreateConnection();
-            //CreateTable(sqlite_conn);
+            CreateTable(sqlite_conn);
+            //These were commented out because they were used to test. They can be ignored.
             //InsertData();
             //ReadData();
         }
@@ -39,9 +41,9 @@ namespace ClarityAssessment
         }
         static void CreateTable(SQLiteConnection conn)
         {
-
+            //Creates table if it doesn't exist
             SQLiteCommand sqlite_cmd;
-            string Createsql = "CREATE TABLE Emails(Sender TEXT, Recipient TEXT, Subject TEXT, Message TEXT, Status TEXT)";
+            string Createsql = "CREATE TABLE IF NOT EXISTS Emails(Sender TEXT, Recipient TEXT, Subject TEXT, Message TEXT, Status TEXT)";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = Createsql;
             sqlite_cmd.ExecuteNonQuery();
@@ -49,6 +51,7 @@ namespace ClarityAssessment
         }
         public void InsertData(string senderStr, string recipientStr, string subjectStr, string messageStr, string statusStr)
         {
+            //Inserts data passed in
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
             sqlite_cmd.CommandText = $"INSERT INTO Emails(Sender, Recipient, Subject, Message, Status) VALUES('{senderStr}', '{recipientStr}', '{subjectStr}', '{messageStr}', '{statusStr}'); ";
@@ -56,6 +59,7 @@ namespace ClarityAssessment
         }
         public void ReadData()
         {
+            //Prints all rows to console
             SQLiteDataReader sqlite_datareader;
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
@@ -64,6 +68,7 @@ namespace ClarityAssessment
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read())
             {
+                //There's prolly a more graceful way to do this, but I haven't used SQLite with WPF before x_x
                 Debug.Write(sqlite_datareader.GetString(0) + "  ");
                 Debug.Write(sqlite_datareader.GetString(1) + "  ");
                 Debug.Write(sqlite_datareader.GetString(2) + "  ");

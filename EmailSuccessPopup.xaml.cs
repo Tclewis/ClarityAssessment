@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace ClarityAssessment
 {
     /// <summary>
-    /// Interaction logic for EmailSuccessPopup.xaml
+    /// Simple information dialog box for status of email
     /// </summary>
     public partial class EmailSuccessPopup : Window
     {

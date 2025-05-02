@@ -32,9 +32,9 @@ namespace ClarityAssessment
             String subjectStr = EmailSubjectField.Text;
             String messageStr = EmailMessageField.Text;
 
-            string response = se.sendEmail(senderStr, recipientStr, subjectStr, messageStr);
+            var response = se.sendEmailAsync(senderStr, recipientStr, subjectStr, messageStr);
 
-            if (response.Equals("success"))
+            if (response.Result.Equals("true"))
             {
                 EmailSuccessPopup popup = new EmailSuccessPopup();
                 popup.Show();

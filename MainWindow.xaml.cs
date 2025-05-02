@@ -1,4 +1,5 @@
-﻿using System.Net.Security;
+﻿using System.Configuration;
+using System.Net.Security;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,12 +32,13 @@ namespace ClarityAssessment
         {
             SendEmail.EmailSender se = new SendEmail.EmailSender();
 
-            String senderStr = EmailSenderField.Text;
+            String senderStr = ConfigurationManager.AppSettings["senderEmail"];
             String recipientStr = EmailRecipientField.Text;
             String subjectStr = EmailSubjectField.Text;
             String messageStr = EmailMessageField.Text;
+            String credentialsStr = ConfigurationManager.AppSettings["senderPassword"];
 
-            string response = await Task.Run( () => { return se.sendEmail(senderStr, recipientStr, subjectStr, messageStr); });
+            string response = await Task.Run( () => { return se.sendEmail(senderStr, recipientStr, subjectStr, messageStr, credentialsStr); });
 
             if (response.Equals("success"))
             {

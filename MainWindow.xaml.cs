@@ -25,6 +25,10 @@ namespace ClarityAssessment
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SendMail();
+        }
+        private async Task SendMail()
+        {
             SendEmail.EmailSender se = new SendEmail.EmailSender();
 
             String senderStr = EmailSenderField.Text;
@@ -32,9 +36,9 @@ namespace ClarityAssessment
             String subjectStr = EmailSubjectField.Text;
             String messageStr = EmailMessageField.Text;
 
-            var response = se.sendEmailAsync(senderStr, recipientStr, subjectStr, messageStr);
+            string response = await Task.Run( () => { return se.sendEmail(senderStr, recipientStr, subjectStr, messageStr); });
 
-            if (response.Result.Equals("true"))
+            if (response.Equals("success"))
             {
                 EmailSuccessPopup popup = new EmailSuccessPopup();
                 popup.Show();
@@ -42,7 +46,7 @@ namespace ClarityAssessment
             else if (response.Equals("invalid"))
             {
                 EmailInvalidPopup popup = new EmailInvalidPopup();
-                popup.Show();   
+                popup.Show();
             }
         }
 

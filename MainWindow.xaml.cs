@@ -48,6 +48,11 @@ namespace ClarityAssessment
                 EmailInvalidPopup popup = new EmailInvalidPopup();
                 popup.Show();
             }
+            else if (response.Equals("timeout"))
+            {
+                EmailTimeoutPopup popup = new EmailTimeoutPopup();
+                popup.Show();
+            }
         }
 
         private void Button_Click_Other_Page(object sender, RoutedEventArgs e)

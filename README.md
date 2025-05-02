@@ -19,7 +19,8 @@ There is field validation (for null and invalid format) for the recipient field.
 In the case of a failed send, the program will retry up to 3 times with a 3 second pause between tries.
 If all 3 tries are unsuccessful, you will receive a popup notification of the failure and the sending is cancelled. 
 
-Successful sends will also generate a success popup.
+Successful sends will also generate a success popup. Be sure to check your spam folder for the email. 
+In testing my spam filter was always catching it.
 
 Thanks!
 
